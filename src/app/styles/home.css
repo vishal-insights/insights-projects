@@ -1,0 +1,38 @@
+@keyframes glowing-underline {
+  0% {
+    background-position: 200% 0;
+  }
+  50% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-glowing-underline {
+  background-size: 400% 100%;
+  animation: glowing-underline 3s ease-in-out infinite;
+}
+
+
+/* Gradient border reusable class  for box 1*/
+.gradient-border {
+  position: absolute;
+  inset: 0;
+  border: 2px solid transparent;
+  border-radius: 0.5rem; /* Same as rounded-lg */
+  border-image: linear-gradient(to right, #00BFFF,#00BFFF) 1;
+  pointer-events: none;
+  z-index: 10; 
+}
+
+
+.card-glow {
+  box-shadow:
+    0 0 15px rgba(0, 204, 255, 0.4),
+    0 0 30px rgba(0, 204, 255, 0.3),
+    0 0 60px rgba(0, 204, 255, 0.2);
+  transition: all 0.3s ease;
+  background: radial-gradient(circle at 50% 50%, rgba(0, 204, 255, 0.05), transparent 70%);
+}

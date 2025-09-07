@@ -1,0 +1,37 @@
+{
+  "name": "project-insights",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@rive-app/react-canvas": "^4.23.3",
+    "bootstrap-icons": "^1.13.1",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.23.12",
+    "gsap": "^3.13.0",
+    "lucide-react": "^0.542.0",
+    "motion": "^12.23.12",
+    "next": "15.4.7",
+    "ogl": "^1.0.11",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-typed": "^2.0.12",
+    "tailwind-merge": "^3.3.1"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9",
+    "eslint-config-next": "15.4.7",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.13",
+    "tw-animate-css": "^1.3.7"
+  }
+}
