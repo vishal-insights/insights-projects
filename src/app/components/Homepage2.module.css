@@ -63,7 +63,7 @@
 
 .card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.259);
 }
 
 .icon {
@@ -82,7 +82,8 @@
                 0 0 45px rgba(13, 110, 253, 0.2);
   }
   100% {
-    box-shadow: 0 0 15px rgba(13, 110, 253, 0.2),
-                0 0 30px rgba(13, 110, 253, 0.1);
+    box-shadow: 0 0 15px rgba(100, 150, 224, 0.2),
+                0 0 30px rgba(47, 105, 192, 0.1);
   }
 }
+

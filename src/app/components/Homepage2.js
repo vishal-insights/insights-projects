@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Homepage2.module.css';
+import SplashCursor from '@/components/SplashCursor';
 
 const services = [
   { title: "Secretarial & Legal Compliance", icon: "bi-shield-check" },
@@ -21,11 +22,13 @@ const services = [
 
 const Homepage2 = () => {
   return (
+    <>
     <div className={styles.container}>
       <div className={styles.animatedBg}></div>
 
       <div className={styles.overlay}>
         <h1 className="text-white text-center mb-4 text-2xl">Expertise-Driven Segments</h1>
+
         <div className={styles.bigCard}>
           <div className={styles.grid}>
             {services.map((service, index) => (
@@ -38,6 +41,8 @@ const Homepage2 = () => {
         </div>
       </div>
     </div>
+    <SplashCursor />
+    </>
   );
 };
 

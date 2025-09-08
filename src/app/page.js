@@ -34,7 +34,7 @@ export default function Home() {
                 <i className="bi bi-bar-chart text-4xl mr-3 text-amber-200"></i>
                 <span className="relative">
                   Where Expertise Meets Unmatched Excellence
-                  <span className="absolute left-0 bottom-0 w-full h-1 bg-gradient-to-r from-blue-100 via-blue-300 to-sky-300 animate-glowing-underline"></span>
+                  <span className="absolute left-0 bottom-0 w-full h-1 bg-gradient-to-r from-black via-gray-950 to-black animate-glowing-underline"></span>
                 </span>
               </p>
             </div>
