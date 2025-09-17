@@ -96,7 +96,7 @@ export default function Navbar() {
                     {/* Dropdown */}
                     <div
                       className={`absolute left-0 mt-0 hidden group-hover:block ${item.name === 'About Us' ? 'w-[200px]' : 'w-[400px]'
-                        } bg-blue-500/85 text-white  rounded-md shadow-lg z-50 `}
+                        } bg-black/85 text-white  rounded-md shadow-lg z-50 `}
                     >
                       <ul
                         className={`p-2 ${item.name === 'About Us'

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Homepage2.module.css';
-import SplashCursor from '@/components/SplashCursor';
+
 
 const services = [
   { title: "Secretarial & Legal Compliance", icon: "bi-shield-check" },
@@ -41,7 +41,6 @@ const Homepage2 = () => {
         </div>
       </div>
     </div>
-    <SplashCursor />
     </>
   );
 };

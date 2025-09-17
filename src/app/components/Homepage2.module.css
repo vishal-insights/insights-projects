@@ -2,7 +2,7 @@
   position: relative;
   width: 100vw;
   height: 100vh;
-  background-color: #000;
+  background-color: #000000;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -35,7 +35,7 @@
 }
 
 .bigCard {
-  background: #111;
+  background: #000000;
   border-radius: 20px;
   padding: 30px;
   border: 1px solid #333;

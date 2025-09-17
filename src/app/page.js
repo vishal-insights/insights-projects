@@ -5,6 +5,7 @@ import './styles/home.css';
 import AnimatedButton from "./components/AnimatedButton";
 import Contact from "./components/Contact";
 import Homepage2 from "./components/Homepage2";
+import Homepage3 from "./components/Homepage3";
 export default function Home() {
   return (
     <>
@@ -117,10 +118,19 @@ export default function Home() {
         </div>
       </div>
 
- {/* After srolling */}
-<div>
-<Homepage2/>
-</div>
+      {/* After srolling Homepage2.js */}
+      <div>
+        <Homepage2 />
+      </div>
+      {/* After srolling Homepage3.js */}
+
+      <div>
+        <Homepage3 />
+
+      </div>
+
+
+
     </>
   );
 }
