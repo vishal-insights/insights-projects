@@ -119,10 +119,95 @@
   }
 }
 
+/* services */
+
+/* PAGE BACKGROUND – PREMIUM PINK AURA */
+.premium-bg {
+  background:
+    radial-gradient(circle at top, rgba(255, 20, 147, 0.10), transparent 45%),
+    linear-gradient(180deg, #0a0a0a 0%, #111111 40%, #000000 100%);
+}
+
+/* CARD BACKGROUND – GLASS + LUXURY */
+.premium-card {
+  background: linear-gradient(
+    145deg,
+    rgba(10, 16, 32, 0.434),
+    rgba(8, 8, 8, 0.521)
+  );
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* HOVER – RICH BLACK + PINK EDGE */
+.premium-card:hover {
+  background: linear-gradient(
+    145deg,
+    rgba(0, 0, 0, 0.88),
+    rgba(20, 20, 20, 0.88)
+  );
+  border-color: rgba(255, 20, 147, 0.65);
+}
+
+/* PREMIUM MOTION */
+@keyframes premiumMotion {
+  0% { transform: scale(1) translateY(0) rotate(0deg); }
+  25% { transform: scale(1.04) translateY(-6px) rotate(1deg); }
+  50% { transform: scale(1.08) translateY(0) rotate(0deg); }
+  75% { transform: scale(1.04) translateY(6px) rotate(-1deg); }
+  100% { transform: scale(1) translateY(0) rotate(0deg); }
+}
+
+.animate-premium {
+  animation: premiumMotion 10s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* SOFT PINK GLOW */
+.glow-layer {
+  background: radial-gradient(
+    circle,
+    rgba(255, 20, 147, 0.40),
+    transparent 70%
+  );
+}
 
 
+/* services botton */
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 6s linear infinite;
+}
+
+/* home icon services */
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 7s linear infinite;
+}
 
 
+/* Board Meeting css =================================================>*/
+@keyframes borderLuxury {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+.animate-borderLuxury {
+  animation: borderLuxury 16s linear infinite;
+}
+
+
+/* SECRETRIAL AUDIT CSS =================================> */
 
 
 

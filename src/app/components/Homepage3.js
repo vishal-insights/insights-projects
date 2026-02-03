@@ -21,7 +21,7 @@ const Homepage3 = () => {
           height: '50%',
           backgroundColor: '#060010',
           borderRadius: '20px',
-          border: '2px solid #4361EE',
+          border: '1px solid #4361EE',
           display: 'flex',
           //   alignItems: 'center',
           justifyContent: 'center',
@@ -37,7 +37,7 @@ const Homepage3 = () => {
             </h1>
             <hr className="w-24 border-t-2 border-blue-600 mx-auto my-4" />
             <p className="text-lg text-shadow-fuchsia-200 font-medium mb-2">
-              Led by Proprietor <span className="text-blue-600">CS Shailendra Dwivedi</span>, CS, LLB, BCom
+              Led by Founder <span className="text-blue-600">CS Shailendra Dwivedi</span>, CS, LLB, BCom
             </p>
             <p className="text-shadow-fuchsia-100 text-base">
               We are one of Mumbai’s leading corporate legal firms with over 12 years of professional experience.

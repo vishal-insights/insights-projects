@@ -6,6 +6,8 @@ import AnimatedButton from "./components/AnimatedButton";
 import Contact from "./components/Contact";
 import Homepage2 from "./components/Homepage2";
 import Homepage3 from "./components/Homepage3";
+import Homepage4 from "./components/Homepage4";
+// import Homepage5 from "./components/Homepage5";
 export default function Home() {
   return (
     <>
@@ -128,8 +130,15 @@ export default function Home() {
         <Homepage3 />
 
       </div>
+      {/* After srolling Homepage4.js */}
 
-
+<div>
+  <Homepage4/>
+</div>
+{/* After srolling Homepage4.js */}
+<div>
+  {/* <Homepage5/> */}
+</div>
 
     </>
   );
