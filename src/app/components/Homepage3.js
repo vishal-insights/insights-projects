@@ -1,61 +1,58 @@
+'use client'
 import React from 'react'
 import LaserFlow from '@/components/LaserFlow'
 
 const Homepage3 = () => {
   return (
-    <>
-      <div className='bg-black'>
-      
+    <section className="relative bg-black overflow-hidden min-h-[500px] md:min-h-[650px] hidden md:block">
+
+      {/* 🔥 LaserFlow Background */}
+      <div className="hidden md:block absolute inset-0 z-0 scale-110 -translate-y-20">
         <LaserFlow
-          horizontalBeamOffset={0.1}
-          verticalBeamOffset={0.1}
+          horizontalBeamOffset={0.15}
+          verticalBeamOffset={-0.2}
           color="#4361EE"
+          flowSpeed={0.35}
+          flowStrength={0.25}
+          fogIntensity={0.5}
         />
+      </div>
 
-        <div style={{
-          position: 'absolute',
-          top: '246%',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          width: '86%',
-          height: '50%',
-          backgroundColor: '#060010',
-          borderRadius: '20px',
-          border: '1px solid #4361EE',
-          display: 'flex',
-          //   alignItems: 'center',
-          justifyContent: 'center',
-          color: 'white',
-          fontSize: '2rem',
-          zIndex: 6
-        }}>
-          {/* Your content here */}
+      {/* 🔥 Dark overlay for smooth look */}
+      <div className="absolute inset-0 bg-black/60 z-[1]" />
 
-          <div className="text-center my-8 max-w-2xl mx-auto">
-            <h1 className="text-4xl font-bold text-shadow-fuchsia-100">
-              Why Compliance Starts With Us
-            </h1>
-            <hr className="w-24 border-t-2 border-blue-600 mx-auto my-4" />
-            <p className="text-lg text-shadow-fuchsia-200 font-medium mb-2">
-              Led by Founder <span className="text-blue-600">CS Shailendra Dwivedi</span>, CS, LLB, BCom
-            </p>
-            <p className="text-shadow-fuchsia-100 text-base">
-              We are one of Mumbai’s leading corporate legal firms with over 12 years of professional experience.
-              Committed to excellence and client satisfaction, we provide expert guidance and reliable solutions
-              to help your business stay fully compliant and thrive in today’s dynamic legal environment.
-            </p>
-            <div className=' text-orange-600'>
+      {/* 📱 Mobile fallback */}
+      <div className="md:hidden absolute inset-0 bg-gradient-to-br from-black via-slate-900 to-black" />
 
-              <p className=" text-base">
-                We believe that with individual client comes responsibility of providing personalised solutions and services to every client individually. Hence, we are focused on providing personalised solutions to our clients based on their legal need.
-              </p>
-            </div>
-          </div>
+      {/* 🔥 Content */}
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 py-16 md:py-24 mt-145 ml-73">
 
+        <div className="bg-[#060010]/80 backdrop-blur-md border border-blue-500/30 rounded-2xl p-6 sm:p-8 md:p-10 text-center">
+
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white">
+            Why Compliance Starts With Us
+          </h1>
+
+          <hr className="w-16 sm:w-24 border-t-2 border-blue-600 mx-auto my-4" />
+
+          <p className="text-sm sm:text-base md:text-lg text-gray-300 font-medium mb-3">
+            Led by Founder 
+            <span className="text-blue-500"> CS Shailendra Dwivedi</span>, CS, LLB, BCom
+          </p>
+
+          <p className="text-sm md:text-base text-gray-400 leading-relaxed mb-4">
+            We are one of Mumbai’s leading corporate legal firms with over 12 years of experience.
+            We provide expert guidance to keep your business compliant and growing.
+          </p>
+
+          <p className="text-sm md:text-base text-orange-500">
+            We focus on personalised legal solutions tailored to each client’s needs.
+          </p>
 
         </div>
       </div>
-    </>
+
+    </section>
   )
 }
 

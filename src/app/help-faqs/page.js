@@ -87,45 +87,7 @@ export default function HelpSupport() {
         ))}
       </div>
 
-      {/* Ask Expert Form */}
-      <div className="mt-20 max-w-3xl mx-auto px-6 md:px-0">
-        <h3 className="text-2xl font-bold text-center mb-6">Ask Our Experts</h3>
-        {formSubmitted ? (
-          <p className="text-green-400 text-center text-lg">Thank you! Our experts will contact you shortly.</p>
-        ) : (
-          <form
-            onSubmit={async (e) => {
-              e.preventDefault();
-              const formData = {
-                name: e.target.name.value,
-                email: e.target.email.value,
-                phone: e.target.phone.value,
-                message: e.target.message.value,
-              };
-              try {
-                const res = await fetch("/api/submit-question", {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify(formData),
-                });
-                if (res.ok) setFormSubmitted(true);
-                else alert("Something went wrong. Try again!");
-              } catch (err) {
-                console.error(err);
-                alert("Error submitting form");
-              }
-            }}
-            className="space-y-4 bg-white/5 dark:bg-black/40 p-8 rounded-2xl shadow-md border dark:border-white/10"
-          >
-            <input name="name" type="text" placeholder="Full Name" required className="w-full p-3 rounded-lg bg-black/20 border border-white/20"/>
-            <input name="email" type="email" placeholder="Email" required className="w-full p-3 rounded-lg bg-black/20 border border-white/20"/>
-            <input name="phone" type="tel" placeholder="Phone Number" required className="w-full p-3 rounded-lg bg-black/20 border border-white/20"/>
-            <textarea name="message" placeholder="Your Question / Requirement" rows="4" required className="w-full p-3 rounded-lg bg-black/20 border border-white/20"></textarea>
-            <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 py-3 rounded-lg text-white">Submit Question</button>
-          </form>
-        )}
-      </div>
-
+      
       {/* Footer */}
       <div className="mt-24 text-center text-gray-500 dark:text-gray-400 text-sm">
         © {new Date().getFullYear()} S K Dwivedi & Associates. All Rights Reserved.

@@ -57,53 +57,74 @@ export default function OfficesSection() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Heading */}
-        <motion.h2
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="text-center text-4xl md:text-4xlxl font-extrabold bg-gradient-to-r from-blue-400 via-fuchsia-400 to-purple-500 bg-clip-text text-transparent"
-        >
-          Our Presence Across India
-        </motion.h2>
+<motion.h2
+  initial={{ opacity: 0, y: -30 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+  className="
+    text-center 
+    text-2xl 
+    sm:text-3xl 
+    md:text-4xl 
+    lg:text-5xl 
+    font-extrabold 
+    leading-tight
+    
+    bg-gradient-to-r from-blue-400 via-fuchsia-400 to-purple-500 
+    bg-clip-text text-transparent
+  "
+>
+  Our Presence Across India
+</motion.h2>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 1 }}
-          className="mt-4 text-center text-xl text-shadow-fuchsia-100"
-        >
-          Connecting with you from India’s leading corporate hubs
-        </motion.p>
+<motion.p
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ delay: 0.3, duration: 0.8 }}
+  className="
+    mt-3 sm:mt-4 
+    text-center 
+    
+    text-sm 
+    sm:text-base 
+    md:text-lg 
+    
+    text-gray-300 
+    max-w-[90%] sm:max-w-xl 
+    mx-auto
+  "
+>
+  Connecting with you from India’s leading corporate hubs
+</motion.p>
         {/* Map + Offices */}
         <div className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* India Map */}
-          <div className="relative w-full h-[600px] bg-slate-900 rounded-3xl overflow-hidden shadow-3xl border-2 border-b-fuchsia-500">
-            <img
-              src="/images/mapi.webp"
-              alt="India Map"
-              className="absolute inset-0 w-full h-full object-contain opacity-80"
-            />
- 
-            {offices.map((office, i) => (
-              <motion.div
-                key={i}
-                className="absolute w-6 h-6 bg-amber-400 rounded-full shadow-lg shadow-fuchsia-400 cursor-move"
-                style={{
-                  top: office.position.top,
-                  left: office.position.left,
-                  transform: "translate(-50%, -50%)",
-                }}
-                drag
-                dragMomentum={false}
-                onDragEnd={(e) => handleDrag(e, i)}
-                animate={{ opacity: [0.3, 1, 0.3] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              >
-                <div className="absolute inset-0 m-auto w-2 h-2 bg-white rounded-full"></div>
-              </motion.div> 
-            ))}
-          </div>
-           
+{/* India Map */}
+<div className="hidden md:block relative w-full h-[600px] bg-slate-900 rounded-3xl overflow-hidden shadow-3xl border-2 border-b-fuchsia-500">
+  <img
+    src="/images/mapi.webp"
+    alt="India Map"
+    className="absolute inset-0 w-full h-full object-contain opacity-80"
+  />
+
+  {offices.map((office, i) => (
+    <motion.div
+      key={i}
+      className="absolute w-6 h-6 bg-amber-400 rounded-full shadow-lg shadow-fuchsia-400 cursor-move"
+      style={{
+        top: office.position.top,
+        left: office.position.left,
+        transform: "translate(-50%, -50%)",
+      }}
+      drag
+      dragMomentum={false}
+      onDragEnd={(e) => handleDrag(e, i)}
+      animate={{ opacity: [0.3, 1, 0.3] }}
+      transition={{ duration: 1.5, repeat: Infinity }}
+    >
+      <div className="absolute inset-0 m-auto w-2 h-2 bg-white rounded-full"></div>
+    </motion.div>
+  ))}
+</div> 
  
           {/* Office Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
