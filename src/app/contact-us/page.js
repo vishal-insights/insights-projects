@@ -436,12 +436,15 @@ export default function ContactPage() {
     return ()=>{ cancelAnimationFrame(raf); window.removeEventListener("resize",resize); };
   }, []);
 
-  // ── PARALLAX ──
-  useEffect(()=>{
-    const move=(e)=>{ mouseX.set((e.clientX/window.innerWidth-.5)*22); mouseY.set((e.clientY/window.innerHeight-.5)*14); };
-    window.addEventListener("mousemove",move);
-    return ()=>window.removeEventListener("mousemove",move);
-  },[]);
+  // ── PARALLAX ── ✅ FIX: mouseX aur mouseY ko dependency array mein add kiya
+  useEffect(() => {
+    const move = (e) => {
+      mouseX.set((e.clientX / window.innerWidth - 0.5) * 22);
+      mouseY.set((e.clientY / window.innerHeight - 0.5) * 14);
+    };
+    window.addEventListener("mousemove", move);
+    return () => window.removeEventListener("mousemove", move);
+  }, [mouseX, mouseY]);
 
   // ── FIELDS CONFIG ──
   const FIELDS = [

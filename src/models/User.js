@@ -10,4 +10,9 @@ const UserSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now },
 });
 
-export default mongoose.models.User || mongoose.model("User", UserSchema);
+// 👇 FORCE NEW MODEL (IMPORTANT FOR DEBUGGING)
+const User =
+  mongoose.models.User ||
+  mongoose.model("User", UserSchema, "sk_dwivedi_associates_clients");
+
+export default User;

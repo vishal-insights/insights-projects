@@ -156,8 +156,8 @@ uniform float uFade;
 
 void mainImage(out vec4 fc,in vec2 frag){
     vec2 C=iResolution.xy*.5; float invW=1.0/max(C.x,1.0);
-    float sc=512.0/iResolution.x*.4;
-    vec2 uv=(frag-C)*sc,off=vec2(uBeamXFrac*iResolution.x*sc,uBeamYFrac*iResolution.y*sc);
+    vec2 sc=(512.0/iResolution.xy)*.4;
+    vec2 uv=(frag-C)*sc,off=vec2(uBeamXFrac*iResolution.x*sc.x,uBeamYFrac*iResolution.y*sc.y);
     vec2 uvc = uv - off;
     float a=0.0,b=0.0;
     float basePhase=1.5*PI+uDecay*.5; float tauMin=basePhase-uDecay; float tauMax=basePhase;
@@ -266,6 +266,7 @@ export const LaserFlow = ({
   const rectRef = useRef(null);
   const baseDprRef = useRef(1);
   const currentDprRef = useRef(1);
+  const lastSizeRef = useRef({ width: 0, height: 0, dpr: 0 });
   const fpsSamplesRef = useRef([]);
   const lastFpsCheckRef = useRef(performance.now());
   const emaDtRef = useRef(16.7);
@@ -372,10 +373,23 @@ export const LaserFlow = ({
       const w = mount.clientWidth || 1;
       const h = mount.clientHeight || 1;
       const pr = currentDprRef.current;
+
+      const last = lastSizeRef.current;
+      const sizeChanged = Math.abs(w - last.width) > 0.5 || Math.abs(h - last.height) > 0.5;
+      const dprChanged = Math.abs(pr - last.dpr) > 0.01;
+      if (!sizeChanged && !dprChanged) {
+        return;
+      }
+
+      lastSizeRef.current = { width: w, height: h, dpr: pr };
       renderer.setPixelRatio(pr);
       renderer.setSize(w, h, false);
       uniforms.iResolution.value.set(w * pr, h * pr, pr);
       rectRef.current = canvas.getBoundingClientRect();
+
+      if (!pausedRef.current) {
+        renderer.render(scene, camera);
+      }
     };
 
     let resizeRaf = 0;
@@ -431,6 +445,8 @@ export const LaserFlow = ({
     const dprFloor = 0.6;
     const lowerThresh = 50;
     const upperThresh = 58;
+    let lastDprChangeRef = 0;
+    const dprChangeCooldown = 2000;
 
     const adjustDprIfNeeded = now => {
       const elapsed = now - lastFpsCheckRef.current;
@@ -447,13 +463,14 @@ export const LaserFlow = ({
       const base = baseDprRef.current;
 
       if (avgFps < lowerThresh) {
-        next = clamp(currentDprRef.current * 0.9, dprFloor, base);
+        next = clamp(currentDprRef.current * 0.85, dprFloor, base);
       } else if (avgFps > upperThresh && currentDprRef.current < base) {
-        next = clamp(currentDprRef.current * 1.05, dprFloor, base);
+        next = clamp(currentDprRef.current * 1.1, dprFloor, base);
       }
 
-      if (Math.abs(next - currentDprRef.current) > 0.01) {
+      if (Math.abs(next - currentDprRef.current) > 0.01 && now - lastDprChangeRef > dprChangeCooldown) {
         currentDprRef.current = next;
+        lastDprChangeRef = now;
         setSizeNow();
       }
 
@@ -513,6 +530,7 @@ export const LaserFlow = ({
       geometry.dispose();
       material.dispose();
       renderer.dispose();
+      renderer.forceContextLoss();
       if (mount.contains(canvas)) mount.removeChild(canvas);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps

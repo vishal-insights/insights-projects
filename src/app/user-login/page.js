@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 export default function UserLogin() {
@@ -407,10 +408,10 @@ export default function UserLogin() {
 
         <header className="firm-header">
           <div className="firm-name">S K Dwivedi <span>&amp;</span> Associates</div>
-          <a href="/" className="home-btn">
+          <Link href="/" className="home-btn">
             <i className="bi bi-house-fill" />
             <span className="home-label">Home</span>
-          </a>
+          </Link>
         </header>
 
         <div className="card-wrap">
@@ -457,7 +458,7 @@ export default function UserLogin() {
                         </span>
                       </div>
                       <div className="forgot-row">
-                        <a href="/forgot-password" className="forgot-a">Forgot password?</a>
+                        <Link href="/forgot-password" className="forgot-a">Forgot password?</Link>
                       </div>
                     </div>
 
@@ -473,9 +474,9 @@ export default function UserLogin() {
                     <div className="div-line" /><span className="div-txt">New Here</span><div className="div-line" />
                   </div>
 
-                  <a href="/user-register" className="signup-btn">
+                  <Link href="/user-register" className="signup-btn">
                     <i className="bi bi-person-plus-fill" /> Create an Account
-                  </a>
+                  </Link>
                 </div>
               </div>
 

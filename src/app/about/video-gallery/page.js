@@ -703,7 +703,8 @@ export default function About() {
 
         {/* ═══ QUOTE ═══ */}
         <div className={`quote-block rise d4 ${loaded ? "in" : ""}`}>
-          <span className="quote-mark">"</span>
+          {/* ✅ FIX: &ldquo; &rdquo; use kiya hai directly " ki jagah */}
+          <span className="quote-mark">&ldquo;</span>
           <p className="quote-text">
             A practicing Company Secretary based in Mumbai, specializing in providing a
             comprehensive range of professional services to ensure legal compliance,

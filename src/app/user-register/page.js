@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function UserRegister() {
   const router = useRouter();
@@ -239,14 +240,14 @@ export default function UserRegister() {
 
       {/* Navbar */}
       <nav className="nav">
-        <span className="nav-brand">S K Dwivedi &amp; Associates</span>
-        <a href="/" className="nav-home">
+        <span className="nav-brand">S K Dwivedi & Associates</span>
+        <Link href="/" className="nav-home">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
             <polyline points="9 22 9 12 15 12 15 22"/>
           </svg>
           Home
-        </a>
+        </Link>
       </nav>
 
       {/* Page */}
@@ -307,7 +308,7 @@ export default function UserRegister() {
           </form>
 
           <div className="card-footer">
-            Already have an account? <a href="/user-login">Sign in</a>
+            Already have an account? <Link href="/user-login">Sign in</Link>
           </div>
         </div>
       </div>

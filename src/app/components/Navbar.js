@@ -140,11 +140,11 @@ export default function Navbar() {
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500;600&display=swap');
 
         :root {
-          --gold: #c9a84c;
-          --gold-light: #e2c97e;
+          --navy: #1a3a6b;
+          --navy-light: #2a5298;
           --dark: #0a0a0f;
           --dark-glass: rgba(8, 8, 16, 0.92);
-          --border-gold: rgba(201, 168, 76, 0.25);
+          --border-navy: rgba(26, 58, 107, 0.5);
         }
 
         .sk-navbar {
@@ -156,11 +156,11 @@ export default function Navbar() {
           background: var(--dark-glass);
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
-          border-bottom: 1px solid var(--border-gold);
+          border-bottom: 1px solid var(--border-navy);
         }
 
         .sk-navbar.scrolled {
-          box-shadow: 0 4px 40px rgba(201, 168, 76, 0.12);
+          box-shadow: 0 4px 40px rgba(26, 58, 107, 0.25);
         }
 
         .sk-inner {
@@ -185,7 +185,7 @@ export default function Navbar() {
           font-family: 'Cinzel', serif;
           font-size: 1rem;
           font-weight: 700;
-          color: var(--gold);
+          color: #ffffff;
           letter-spacing: 0.05em;
           line-height: 1.2;
           white-space: nowrap;
@@ -195,7 +195,7 @@ export default function Navbar() {
           font-family: 'Raleway', sans-serif;
           font-size: 0.6rem;
           font-weight: 400;
-          color: rgba(201, 168, 76, 0.6);
+          color: rgba(255, 255, 255, 0.6);
           letter-spacing: 0.2em;
           text-transform: uppercase;
         }
@@ -230,9 +230,9 @@ export default function Navbar() {
 
         .sk-nav-link:hover,
         .sk-nav-link.active {
-          color: var(--gold-light);
-          background: rgba(201, 168, 76, 0.08);
-          border-color: var(--border-gold);
+          color: #ffffff;
+          background: rgba(26, 58, 107, 0.25);
+          border-color: var(--border-navy);
         }
 
         .sk-nav-link .bi {
@@ -245,9 +245,9 @@ export default function Navbar() {
           top: calc(100% + 6px);
           left: 0;
           background: rgba(10, 10, 18, 0.97);
-          border: 1px solid var(--border-gold);
+          border: 1px solid var(--border-navy);
           border-radius: 10px;
-          box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(201,168,76,0.05);
+          box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(26,58,107,0.1);
           opacity: 0;
           visibility: hidden;
           transform: translateY(-8px);
@@ -293,14 +293,14 @@ export default function Navbar() {
         }
 
         .sk-dropdown-link:hover {
-          background: rgba(201, 168, 76, 0.1);
-          color: var(--gold-light);
-          border-color: var(--border-gold);
+          background: rgba(26, 58, 107, 0.2);
+          color: #ffffff;
+          border-color: var(--border-navy);
         }
 
         .sk-dropdown-link .bi {
           font-size: 0.8rem;
-          color: var(--gold);
+          color: var(--navy-light);
           flex-shrink: 0;
         }
 
@@ -310,9 +310,9 @@ export default function Navbar() {
           font-family: 'Cinzel', serif;
           font-size: 0.65rem;
           letter-spacing: 0.15em;
-          color: var(--gold);
+          color: #ffffff;
           text-transform: uppercase;
-          border-bottom: 1px solid var(--border-gold);
+          border-bottom: 1px solid var(--border-navy);
           margin-bottom: 0.25rem;
         }
 
@@ -324,9 +324,9 @@ export default function Navbar() {
           align-items: center;
           width: 42px;
           height: 42px;
-          border: 1px solid var(--border-gold);
+          border: 1px solid var(--border-navy);
           border-radius: 8px;
-          background: rgba(201, 168, 76, 0.05);
+          background: rgba(26, 58, 107, 0.1);
           cursor: pointer;
           gap: 5px;
           flex-shrink: 0;
@@ -334,14 +334,14 @@ export default function Navbar() {
         }
 
         .sk-hamburger:hover {
-          background: rgba(201, 168, 76, 0.12);
-          border-color: var(--gold);
+          background: rgba(26, 58, 107, 0.25);
+          border-color: var(--navy-light);
         }
 
         .sk-bar {
           width: 20px;
           height: 2px;
-          background: var(--gold);
+          background: #ffffff;
           border-radius: 2px;
           transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
           transform-origin: center;
@@ -367,7 +367,7 @@ export default function Navbar() {
           width: min(340px, 88vw);
           height: 100dvh;
           background: rgba(8, 8, 16, 0.98);
-          border-left: 1px solid var(--border-gold);
+          border-left: 1px solid var(--border-navy);
           backdrop-filter: blur(24px);
           -webkit-backdrop-filter: blur(24px);
           z-index: 998;
@@ -401,7 +401,7 @@ export default function Navbar() {
           align-items: center;
           justify-content: space-between;
           padding: 1rem 1.25rem;
-          border-bottom: 1px solid var(--border-gold);
+          border-bottom: 1px solid var(--border-navy);
           position: sticky;
           top: 0;
           background: rgba(8, 8, 16, 0.98);
@@ -412,7 +412,7 @@ export default function Navbar() {
           font-family: 'Cinzel', serif;
           font-size: 0.85rem;
           font-weight: 700;
-          color: var(--gold);
+          color: #ffffff;
           letter-spacing: 0.05em;
         }
 
@@ -422,17 +422,17 @@ export default function Navbar() {
           justify-content: center;
           width: 34px;
           height: 34px;
-          border: 1px solid var(--border-gold);
+          border: 1px solid var(--border-navy);
           border-radius: 6px;
           background: transparent;
-          color: var(--gold);
+          color: #ffffff;
           cursor: pointer;
           font-size: 1rem;
           transition: all 0.2s;
         }
 
         .sk-close-btn:hover {
-          background: rgba(201,168,76,0.12);
+          background: rgba(26, 58, 107, 0.25);
         }
 
         .sk-mobile-nav {
@@ -455,14 +455,14 @@ export default function Navbar() {
 
         .sk-mobile-link:hover,
         .sk-mobile-link.active {
-          color: var(--gold-light);
-          background: rgba(201,168,76,0.07);
-          border-left-color: var(--gold);
+          color: #ffffff;
+          background: rgba(26, 58, 107, 0.15);
+          border-left-color: var(--navy-light);
         }
 
         .sk-mobile-link .bi {
           font-size: 1rem;
-          color: var(--gold);
+          color: var(--navy-light);
           width: 18px;
           text-align: center;
         }
@@ -487,9 +487,9 @@ export default function Navbar() {
 
         .sk-mobile-accordion-btn:hover,
         .sk-mobile-accordion-btn.open {
-          color: var(--gold-light);
-          background: rgba(201,168,76,0.07);
-          border-left-color: var(--gold);
+          color: #ffffff;
+          background: rgba(26, 58, 107, 0.15);
+          border-left-color: var(--navy-light);
         }
 
         .sk-acc-left {
@@ -500,14 +500,14 @@ export default function Navbar() {
 
         .sk-acc-left .bi {
           font-size: 1rem;
-          color: var(--gold);
+          color: var(--navy-light);
           width: 18px;
           text-align: center;
         }
 
         .sk-acc-chevron {
           font-size: 0.7rem;
-          color: var(--gold);
+          color: #ffffff;
           transition: transform 0.3s ease;
           flex-shrink: 0;
         }
@@ -517,8 +517,8 @@ export default function Navbar() {
         }
 
         .sk-sub-menu-inner {
-          background: rgba(201, 168, 76, 0.03);
-          border-left: 1px solid var(--border-gold);
+          background: rgba(26, 58, 107, 0.05);
+          border-left: 1px solid var(--border-navy);
           margin-left: 1.25rem;
           border-radius: 0 0 8px 0;
           padding-bottom: 0.25rem;
@@ -537,21 +537,21 @@ export default function Navbar() {
         }
 
         .sk-sub-link:hover {
-          color: var(--gold-light);
-          background: rgba(201,168,76,0.07);
-          border-left-color: var(--gold);
+          color: #ffffff;
+          background: rgba(26, 58, 107, 0.15);
+          border-left-color: var(--navy-light);
         }
 
         .sk-sub-link .bi {
           font-size: 0.8rem;
-          color: rgba(201,168,76,0.6);
+          color: rgba(42, 82, 152, 0.8);
           width: 16px;
           text-align: center;
         }
 
         .sk-mobile-divider {
           height: 1px;
-          background: var(--border-gold);
+          background: var(--border-navy);
           margin: 0.5rem 1.25rem;
         }
 
@@ -590,7 +590,7 @@ export default function Navbar() {
           background: transparent;
         }
         .sk-mobile-drawer::-webkit-scrollbar-thumb {
-          background: var(--border-gold);
+          background: var(--border-navy);
           border-radius: 2px;
         }
       `}</style>

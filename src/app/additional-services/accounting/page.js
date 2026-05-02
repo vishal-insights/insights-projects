@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
 
 export default function Home() {
   const [dark, setDark] = useState(true)
@@ -14,16 +15,13 @@ export default function Home() {
   return (
     <div className="bg-slate-50 text-slate-900 dark:bg-black dark:text-slate-100">
 
-      {/* ✅ NAVBAR FIXED */}
+      {/* NAVBAR */}
       <nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-white/70 dark:bg-black/70 border-b border-slate-200 dark:border-blue-900">
-        
         <div className="max-w-7xl mx-auto px-3 sm:px-6 h-16 flex items-center justify-between gap-2">
 
-          {/* 🔥 LEFT (ICON + TEXT) */}
+          {/* LEFT */}
           <div className="flex items-center gap-2 flex-1 min-w-0">
-
             <i className="bi bi-journal-text text-blue-500 text-sm sm:text-base shrink-0"></i>
-
             <span className="
               block
               text-[10px] sm:text-xs md:text-sm
@@ -36,32 +34,34 @@ export default function Home() {
             ">
               Accounting & Bookkeeping
             </span>
-
           </div>
 
-          {/* 🔥 RIGHT ICONS */}
+          {/* RIGHT ICONS */}
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
 
             <button
               onClick={() => setDark(!dark)}
+              aria-label="Toggle theme"
               className="p-2 rounded-lg border border-slate-300 dark:border-blue-800 text-slate-700 dark:text-blue-300 hover:bg-slate-200 dark:hover:bg-blue-900/30 transition"
             >
               <i className={`bi ${dark ? 'bi-sun' : 'bi-moon'}`}></i>
             </button>
 
-            <a
+            <Link
               href="/"
+              aria-label="Home"
               className="p-2 rounded-lg border border-slate-300 dark:border-blue-800 text-slate-700 dark:text-blue-300 hover:bg-slate-200 dark:hover:bg-blue-900/30 transition"
             >
               <i className="bi bi-house-door"></i>
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/additional-services/tax"
+              aria-label="Next page"
               className="p-2 rounded-lg border border-slate-300 dark:border-blue-800 text-slate-700 dark:text-blue-300 hover:bg-slate-200 dark:hover:bg-blue-900/30 transition"
             >
               <i className="bi bi-arrow-right"></i>
-            </a>
+            </Link>
 
           </div>
         </div>
@@ -142,8 +142,8 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer className="py-6 sm:py-8 border-t border-slate-200 dark:border-blue-900 text-center text-xs sm:text-sm text-slate-600 dark:text-blue-400 bg-white dark:bg-black">
-        © {new Date().getFullYear()} S K Dwivedi & Associates <br />
-        Practising Company Secretaries
+        <p>© {new Date().getFullYear()} S K Dwivedi & Associates</p>
+        <p>Practising Company Secretaries</p>
       </footer>
 
     </div>

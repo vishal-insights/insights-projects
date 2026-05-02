@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
 
 export default function Home() {
   const [dark, setDark] = useState(true)
@@ -16,42 +17,39 @@ export default function Home() {
 
       {/* NAVBAR */}
       <nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-white/70 dark:bg-black/70 border-b border-slate-200 dark:border-blue-900">
-        
         <div className="max-w-7xl mx-auto px-3 sm:px-6 h-16 flex items-center justify-between gap-2">
 
-          {/* LEFT TEXT */}
           <div className="flex-1 min-w-0">
             <span className="block text-[10px] sm:text-xs md:text-sm uppercase tracking-[0.2em] text-slate-700 dark:text-blue-300 font-medium truncate">
               Tax Planning & Filing
             </span>
           </div>
 
-          {/* RIGHT ICONS */}
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
 
-            {/* THEME */}
             <button
               onClick={() => setDark(!dark)}
+              aria-label="Toggle theme"
               className="p-2 rounded-lg border border-slate-300 dark:border-blue-800 text-slate-700 dark:text-blue-300 hover:bg-slate-200 dark:hover:bg-blue-900/30 transition"
             >
               <i className={`bi ${dark ? 'bi-sun' : 'bi-moon'}`}></i>
             </button>
 
-            {/* HOME */}
-            <a
+            <Link
               href="/"
+              aria-label="Home"
               className="p-2 rounded-lg border border-slate-300 dark:border-blue-800 text-slate-700 dark:text-blue-300 hover:bg-slate-200 dark:hover:bg-blue-900/30 transition"
             >
               <i className="bi bi-house-door"></i>
-            </a>
+            </Link>
 
-            {/* NEXT */}
-            <a
+            <Link
               href="/additional-services/legal"
+              aria-label="Next page"
               className="p-2 rounded-lg border border-slate-300 dark:border-blue-800 text-slate-700 dark:text-blue-300 hover:bg-slate-200 dark:hover:bg-blue-900/30 transition"
             >
               <i className="bi bi-arrow-right"></i>
-            </a>
+            </Link>
 
           </div>
         </div>
@@ -117,8 +115,6 @@ export default function Home() {
                   shadow-md hover:shadow-xl
                   hover:-translate-y-2 transition duration-300"
               >
-
-                {/* ICON BOX */}
                 <div className="w-12 h-12 flex items-center justify-center rounded-xl
                   bg-blue-100 dark:bg-blue-900/40 mb-4">
                   <i className={`bi ${s.icon} text-2xl text-blue-600 dark:text-blue-400 transition-transform duration-300 group-hover:scale-110`}></i>
@@ -131,7 +127,6 @@ export default function Home() {
                 <p className="mt-2 text-sm sm:text-base text-slate-600 dark:text-blue-400">
                   {s.desc}
                 </p>
-
               </motion.div>
             ))}
           </div>
@@ -141,8 +136,8 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer className="py-6 sm:py-8 border-t border-slate-200 dark:border-blue-900 text-center text-xs sm:text-sm text-slate-600 dark:text-blue-400 bg-white dark:bg-black">
-        © {new Date().getFullYear()} S K Dwivedi & Associates <br />
-        Practising Company Secretaries
+        <p>© {new Date().getFullYear()} S K Dwivedi & Associates</p>
+        <p>Practising Company Secretaries</p>
       </footer>
 
     </div>
