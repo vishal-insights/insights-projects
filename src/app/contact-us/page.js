@@ -13,12 +13,13 @@ const SERVICES = [
 ];
 
 const QUICK_CONTACTS = [
-  { icon:"bi-telephone-fill",   label:"Direct Line",        val:"+91 98100 00000",                                                    href:"tel:+919810000000" },
-  { icon:"bi-whatsapp",         label:"WhatsApp",           val:"+91 98100 00000",                                                    href:"https://wa.me/919810000000" },
-  { icon:"bi-envelope-fill",    label:"General Enquiries",  val:"info@skdwivedi.com",                                                 href:"mailto:info@skdwivedi.com" },
-  { icon:"bi-envelope-at-fill", label:"Compliance Queries", val:"compliance@skdwivedi.com",                                           href:"mailto:compliance@skdwivedi.com" },
-  { icon:"bi-geo-alt-fill",     label:"Office Address",     val:"Suite 12, Corporate Tower, Connaught Place, New Delhi – 110 001",    href:"#" },
-  { icon:"bi-clock-fill",       label:"Office Hours",       val:"Monday – Saturday · 09:30 AM – 06:30 PM IST",                       href:"#" },
+  { icon:"bi-telephone-fill",   label:"Direct Line",        val:"+91 96999 81283",                                                          href:"tel:+919699981283" },
+  { icon:"bi-whatsapp",         label:"WhatsApp",           val:"+91 96999 81283",                                                          href:"https://wa.me/919699981283" },
+  { icon:"bi-envelope-fill",    label:"General Enquiries",  val:"office@skdassociate.com",                                                  href:"mailto:office@skdassociate.com" },
+  { icon:"bi-envelope-at-fill", label:"Compliance Queries", val:"office@skdassociate.com",                                                  href:"mailto:office@skdassociate.com" },
+  { icon:"bi-geo-alt-fill",     label:"Office Address",     val:"32 Bharadwadi Rd, Navneeth Colony, Andheri West, Mumbai – 400 053, India", href:"https://maps.google.com/maps/search/32%2C%20Bhardawadi%20Rd%2C%20Navneeth%20Colony%2C%20Andheri%20West%2C%20Mumbai%2C%20Maharashtra%20400053%2C%20India/@19.1254,72.8433,17z?hl=en" },
+  { icon:"bi-clock-fill",       label:"Office Hours",       val:"Monday – Saturday · 09:30 AM – 06:30 PM IST",                             href:"https://maps.google.com/maps/search/32%2C%20Bhardawadi%20Rd%2C%20Navneeth%20Colony%2C%20Andheri%20West%2C%20Mumbai%2C%20Maharashtra%20400053%2C%20India/@19.1254,72.8433,17z?hl=en" },
+
 ];
 
 // ── CSS ───────────────────────────────────────
@@ -436,7 +437,7 @@ export default function ContactPage() {
     return ()=>{ cancelAnimationFrame(raf); window.removeEventListener("resize",resize); };
   }, []);
 
-  // ── PARALLAX ── ✅ FIX: mouseX aur mouseY ko dependency array mein add kiya
+  
   useEffect(() => {
     const move = (e) => {
       mouseX.set((e.clientX / window.innerWidth - 0.5) * 22);
@@ -534,7 +535,7 @@ export default function ContactPage() {
 
             <div className="chips">
               {[
-                { icon:"bi-geo-alt-fill",  t:"Connaught Place, New Delhi" },
+                { icon:"bi-geo-alt-fill",  t:"Andheri(W), Mumbai" },
                 { icon:"bi-telephone-fill",t:"+91 9699981283" },
                 { icon:"bi-clock-fill",    t:"Mon–Sat · 9:30–6:30 IST" },
                 { icon:"bi-shield-check",  t:"Confidential & Secure" },
@@ -563,9 +564,9 @@ export default function ContactPage() {
           </div>
           <div className="ftr-soc">
             {[
-              { icon:"bi-linkedin",      href:"#" },
-              { icon:"bi-twitter-x",     href:"#" },
-              { icon:"bi-envelope-fill", href:"mailto:info@skdwivedi.com" },
+              { icon:"bi-linkedin",      href:"https://www.linkedin.com/in/cs-shailendra-dwivedi-447a5989?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" },
+              { icon:"bi-twitter-x",     href:"https://x.com/ShailendraRD?t=AHx1OVdzOwTOtQ4GMCUGsw&s=08" },
+              { icon:"bi-envelope-fill", href:"mailto:office@skdassociate.com" },
               { icon:"bi-whatsapp",      href:"https://wa.me/919699981283" },
             ].map(({ icon, href }, i) => (
               <a key={i} href={href} className="soc-icon"><i className={`bi ${icon}`} /></a>

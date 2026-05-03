@@ -1,34 +1,30 @@
 // ─────────────────────────────────────────────────────────────
 //  FILE: app/api/contact/route.js
 //
-//  .env.local mein yeh hona chahiye:
+//  Required environment variables:
 //    RESEND_API_KEY=re_xxxxxxxxxxxx
-//    CONTACT_EMAIL=tumhara@gmail.com
-//
-//  DEVELOPMENT:  auto-reply tumhare gmail pe aayegi ✅
-//  PRODUCTION:   domain verify karne ke baad client ko jaayegi ✅
+//    CONTACT_EMAIL=your@email.com
 // ─────────────────────────────────────────────────────────────
 
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-// Development mein true, production mein false hoga automatically
 const IS_DEV = process.env.NODE_ENV === "development";
 
 export async function POST(request) {
   try {
     const { name, email, phone, company, service, message } = await request.json();
 
-    // ── Validation ──────────────────────────────────────────
+    // ── Input Validation ────────────────────────────────────
     if (!name || !email) {
       return Response.json(
-        { success: false, error: "Name aur Email zaroori hai." },
+        { success: false, error: "Name and Email are required." },
         { status: 400 }
       );
     }
 
-    // ── Email 1: Firm ko (hamesha kaam karta hai) ────────────
+    // ── Notification Email → Firm Owner ────────────────────
     await resend.emails.send({
       from:    "SK Dwivedi Website <onboarding@resend.dev>",
       to:      process.env.CONTACT_EMAIL,
@@ -116,24 +112,22 @@ export async function POST(request) {
       `,
     });
 
-    // ── Email 2: Auto-reply ──────────────────────────────────
-    //
-    //  DEVELOPMENT:  tumhare gmail pe aayegi (test ke liye)
-    //  PRODUCTION:   client ke email pe jaayegi
-    //
+    // ── Auto-reply Email → Client ───────────────────────────
+    // In development, redirected to owner email for testing.
+    // In production, sends directly to the client.
     await resend.emails.send({
       from:    "SK Dwivedi Website <onboarding@resend.dev>",
       to:      IS_DEV ? process.env.CONTACT_EMAIL : email,
       subject: IS_DEV
-        ? `[DEV TEST] Auto-reply for ${name} <${email}>`
+        ? `[DEV] Auto-reply preview for ${name} <${email}>`
         : `We received your enquiry — S K Dwivedi & Associates`,
       html: `
         <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;">
 
           ${IS_DEV ? `
           <div style="background:#fff3cd;border:1px solid #ffc107;padding:10px 20px;font-size:13px;color:#856404;">
-            ⚠️ <strong>DEV MODE:</strong> Yeh email actually <strong>${email}</strong> ko jaani chahiye thi.
-            Production mein client ko directly jaayegi.
+            <strong>[DEV MODE]</strong> This email is intended for <strong>${email}</strong>.
+            In production, it will be delivered directly to the client.
           </div>
           ` : ""}
 
@@ -168,21 +162,21 @@ export async function POST(request) {
 
             <p>For immediate assistance:</p>
             <p>
-              📞 &nbsp;<strong>+91 98100 00000</strong><br/>
-              💬 &nbsp;<a href="https://wa.me/919810000000" style="color:#1a5fc8;">WhatsApp Us</a><br/>
-              📧 &nbsp;<a href="mailto:info@skdwivedi.com" style="color:#1a5fc8;">info@skdwivedi.com</a>
+              📞 &nbsp;<strong>+91 9699981283</strong><br/>
+              💬 &nbsp;<a href="https://wa.me/9699981283" style="color:#1a5fc8;">WhatsApp Us</a><br/>
+              📧 &nbsp;<a href="mailto:office@skdassociate.com" style="color:#1a5fc8;">info@skdwivedi.com</a>
             </p>
 
             <br/>
             <p style="margin:0;">Warm regards,</p>
             <p style="margin:6px 0 0;">
               <strong>S K Dwivedi &amp; Associates</strong><br/>
-              <span style="color:#888;font-size:13px;">Company Secretaries | New Delhi</span>
+              <span style="color:#888;font-size:13px;">Company Secretaries | Mumbai</span>
             </p>
           </div>
 
           <div style="background:#f4f6f9;padding:14px 32px;text-align:center;font-size:12px;color:#aaa;">
-            Suite 12, Corporate Tower, Connaught Place, New Delhi – 110 001
+            32 Bharadawadi Rd,Navneeth Colony, Andheri(W), Mumbai,Maharastra – 400053,India
           </div>
 
         </div>
@@ -192,9 +186,9 @@ export async function POST(request) {
     return Response.json({ success: true });
 
   } catch (error) {
-    console.error("Contact API Error:", error);
+    console.error("[Contact API] Unexpected error:", error);
     return Response.json(
-      { success: false, error: "Server error. Please try again." },
+      { success: false, error: "An unexpected error occurred. Please try again." },
       { status: 500 }
     );
   }
